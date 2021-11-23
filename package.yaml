@@ -1,0 +1,65 @@
+name:                iban-calculator
+version:             0.1.0.0
+github:              "githubuser/iban-calculator"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/iban-calculator#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- cryptohash-sha1
+
+library:
+  source-dirs: src
+  ghc-options:
+    - -O2
+    - -Wall
+
+executables:
+  iban-calculator:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+      - -O2
+      - -Wall
+      - -threaded
+      - -with-rtsopts=-n2M
+      - -with-rtsopts=-A32M
+      - -with-rtsopts=-qa
+      - -with-rtsopts=--nonmoving-gc
+      - -rtsopts
+
+    dependencies:
+      - iban-calculator
+
+  iban-test:
+    main:                Main.hs
+    source-dirs:         test
+    ghc-options:
+      - -O2
+      - -Wall
+
+    dependencies:
+      - filepath
+      - iban-calculator
+      - megaparsec
+      - process
+      - tasty
+      - tasty-hunit
+
+# vim: nospell
