@@ -29,11 +29,14 @@ import qualified Data.ByteString.Char8                    as B8
 -- -----------------------------------------------------------------------------
 
 mtest :: Int -> Int -> Bool
-mtest m iBan = checkSum m multiply reverse show 
+mtest m iBan = checkSum m multiply [1..] reverse show 
   -- Implement the m-test here!
 
+-- Multiply the string with a list of numbers
 multiply :: [Int] -> [Char] -> Int
-multiply xs iBan = map (\(x,iBanNr) -> x * iBanNr )zip 
+multiply xs iBan = sum map (\(x,iBanNr) -> x * iBanNr )zip 
+
+-- check to see if the sum is correct for an Iban given a variable m
 checkSum :: Int -> Int -> Bool
 checkSum iBan m = 0 == iBan %
 
