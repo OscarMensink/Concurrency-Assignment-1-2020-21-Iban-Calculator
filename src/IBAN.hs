@@ -29,9 +29,13 @@ import qualified Data.ByteString.Char8                    as B8
 -- -----------------------------------------------------------------------------
 
 mtest :: Int -> Int -> Bool
-mtest =
+mtest m iBan = checkSum m multiply reverse show 
   -- Implement the m-test here!
-  undefined
+
+multiply :: [Int] -> [Char] -> Int
+multiply xs iBan = map (\(x,iBanNr) -> x * iBanNr )zip 
+checkSum :: Int -> Int -> Bool
+checkSum iBan m = 0 == iBan %
 
 
 -- -----------------------------------------------------------------------------

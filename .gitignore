@@ -1,0 +1,10 @@
+
+*.sqlite3
+
+dist-newstyle/cache/
+
+*.cache
+
+*.lock
+
+.stack-work/
